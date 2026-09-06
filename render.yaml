@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: securex-api
+    runtime: docker
+    region: singapore
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: securex-postgres
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: securex-redis
+          property: connectionString
+      - key: SECUREX_JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+
+  - type: keyvalue
+    name: securex-redis
+    region: singapore
+    plan: free
+    ipAllowList:
+      - source: 0.0.0.0/0
+        description: Render service connectivity
+
+databases:
+  - name: securex-postgres
+    region: singapore
+    plan: free
+    databaseName: securex
+    user: securex

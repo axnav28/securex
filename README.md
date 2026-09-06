@@ -60,3 +60,15 @@ curl http://localhost:8000/health
 ```
 
 See [API_CONTRACT.md](./API_CONTRACT.md) for the frontend/backend response contract.
+
+## Deploy to Render and Vercel
+
+The repository includes [render.yaml](./render.yaml), which defines the Dockerized FastAPI service plus managed Postgres and Redis. In Render, create a new Blueprint from this repository and enter the Vercel production URL when prompted for `CORS_ORIGINS`. Render's Blueprint provisions the API and datastores together.
+
+For the frontend, import this GitHub repository into Vercel as a Next.js project. Leave the project root at the repository root and add this production environment variable:
+
+```text
+NEXT_PUBLIC_API_BASE_URL=https://<your-render-service>.onrender.com
+```
+
+Redeploy Vercel after setting the variable. Then confirm the same Vercel URL is present in the Render API service's `CORS_ORIGINS` value. Vercel documents that environment-variable changes apply to new deployments, and Render Blueprints are synced from the repository's `render.yaml` configuration.
