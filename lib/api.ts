@@ -1,0 +1,3 @@
+const API_BASE=process.env.NEXT_PUBLIC_API_BASE_URL||'http://127.0.0.1:8000';
+export async function apiFetch<T>(path:string,options:RequestInit={}){const token=typeof window!=='undefined'?localStorage.getItem('securex-token'):null;const headers=new Headers(options.headers);headers.set('Content-Type','application/json');if(token)headers.set('Authorization',`Bearer ${token}`);const response=await fetch(`${API_BASE}${path}`,{...options,headers});if(response.status===401&&typeof window!=='undefined'){localStorage.removeItem('securex-token');if(window.location.pathname!=='/login')window.location.assign('/login')}if(!response.ok)throw new Error(`SecureX API ${response.status}`);return response.json() as Promise<T>}
+export const apiBase=API_BASE;
