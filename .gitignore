@@ -1,0 +1,28 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local databases, logs, and tooling files
+*.log
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.sqlite3
+
+# Test and coverage output
+coverage/
+.pytest_cache/
