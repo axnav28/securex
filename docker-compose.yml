@@ -1,0 +1,28 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://securex:securex@postgres:5432/securex
+      REDIS_URL: redis://redis:6379/0
+      SECUREX_JWT_SECRET: ${SECUREX_JWT_SECRET:-}
+    depends_on:
+      - postgres
+      - redis
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: securex
+      POSTGRES_PASSWORD: securex
+      POSTGRES_DB: securex
+    ports:
+      - "5432:5432"
+    volumes:
+      - securex-postgres:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+volumes:
+  securex-postgres:
