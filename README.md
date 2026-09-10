@@ -75,7 +75,6 @@ See the full architecture in [docs/architecture.md](docs/architecture.md) and th
 ```text
 securex/
 ├── README.md
-├── SUBMISSION_GUIDE.md
 ├── LICENSE
 ├── package.json
 ├── requirements.txt
@@ -90,11 +89,9 @@ securex/
 │   ├── architecture.md
 │   └── api-contract.md
 ├── assets/
-│   ├── diagrams/
-│   └── screenshots/
+│   └── diagrams/
 ├── submission/
-│   ├── PRESENTATION.md
-│   └── DEMO.md
+│   └── a2z_SIH2026_Presentation.pdf
 └── .github/workflows/ci.yml
 ```
 
@@ -141,13 +138,11 @@ curl http://localhost:8000/health
 
 The computation, JWT session, persistence, caching, scenario, and audit mechanisms are implemented in the backend. The organization, asset, vulnerability, and control records are seeded demonstration data rather than live feeds from external security products. The frontend retains a graceful mock-data fallback when the API is unavailable.
 
-## Documentation and submission
+## Documentation
 
 - [Architecture](docs/architecture.md)
 - [API contract](docs/api-contract.md)
-- [Presentation outline](submission/PRESENTATION.md)
-- [Demo flow](submission/DEMO.md)
-- [Submission guide](SUBMISSION_GUIDE.md)
+- [Presentation](submission/a2z_SIH2026_Presentation.pdf)
 
 ## License
 
