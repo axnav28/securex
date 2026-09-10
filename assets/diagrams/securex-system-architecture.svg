@@ -1,51 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
-  <title id="title">SecureX simplified system architecture</title>
-  <desc id="desc">Simplified architecture showing inputs, core risk quantification, and decision outputs.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SecureX system architecture</title>
+  <desc id="desc">Professional architecture diagram showing inputs, exposure graph, risk quantification, optimization, and outputs.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fbfcfe"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#294866" flood-opacity=".12"/></filter>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#607b95"/></marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1b2a"/><stop offset="1" stop-color="#142b42"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#193249"/><stop offset="1" stop-color="#1a3b55"/></linearGradient>
+    <linearGradient id="core" x1="0" x2="1"><stop stop-color="#204a68"/><stop offset="1" stop-color="#276879"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="15" flood-color="#000" flood-opacity=".25"/></filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#648baa"/></marker>
     <style>
-      .title{font:700 28px Inter,Arial,sans-serif;fill:#17314f;letter-spacing:-.5px}.sub{font:400 13px Inter,Arial,sans-serif;fill:#6b7f94}.head{font:700 10px Inter,Arial,sans-serif;fill:#668098;letter-spacing:1.7px}.t{font:700 15px Inter,Arial,sans-serif;fill:#183651}.c{font:400 11px Inter,Arial,sans-serif;fill:#60748a}.line{fill:none;stroke:#607b95;stroke-width:2;marker-end:url(#arrow)}.dash{stroke-dasharray:5 5}.box{stroke-width:1.3}.blue{fill:#e8f2fc;stroke:#bdd2e7}.green{fill:#e8f5ef;stroke:#b9daca}.gold{fill:#fff3d9;stroke:#e4cc91}.purple{fill:#f1eaf8;stroke:#cdbddd}.core{fill:#dfedfa;stroke:#7399bc;stroke-width:2}.dark{fill:#173b61;stroke:#173b61}
+      text{font-family:"Helvetica World",Helvetica,Arial,sans-serif}.title{font:700 40px "Helvetica World",Helvetica,Arial,sans-serif;fill:#f3f7fb;letter-spacing:-.8px}.sub{font:400 17px "Helvetica World",Helvetica,Arial,sans-serif;fill:#9eb2c5}.eyebrow{font:700 11px "Helvetica World",Helvetica,Arial,sans-serif;fill:#68bfb2;letter-spacing:2px}.t{font:700 19px "Helvetica World",Helvetica,Arial,sans-serif;fill:#f3f7fb}.c{font:400 14px "Helvetica World",Helvetica,Arial,sans-serif;fill:#adbfce}.tag{font:600 11px "Helvetica World",Helvetica,Arial,sans-serif;fill:#83a4bb;letter-spacing:1px}.line{fill:none;stroke:#5f89a8;stroke-width:2.5;marker-end:url(#arrow)}.dash{stroke-dasharray:7 7}
     </style>
   </defs>
-  <rect width="1200" height="700" fill="url(#bg)"/>
-  <text x="54" y="52" class="title">SecureX system architecture</text>
-  <text x="54" y="77" class="sub">From security signals to an explainable investment decision</text>
-  <path d="M54 104H1146" stroke="#d9e4ee"/>
-
-  <text x="70" y="140" class="head">INPUTS</text>
-  <text x="450" y="140" class="head">RISK ENGINE</text>
-  <text x="880" y="140" class="head">OUTPUTS</text>
-
-  <!-- inputs -->
-  <g filter="url(#shadow)">
-    <rect x="54" y="166" width="274" height="84" rx="12" class="box blue"/><text x="78" y="201" class="t">Asset Ingestion Pipeline</text><text x="78" y="225" class="c">Telemetry · CVE scans · CMDB</text>
-    <rect x="54" y="288" width="274" height="68" rx="12" class="box gold"/><text x="78" y="317" class="t">CISA KEV / EPSS API</text><text x="78" y="339" class="c">Threat likelihood signal</text>
-    <rect x="54" y="394" width="274" height="84" rx="12" class="box green"/><text x="78" y="429" class="t">Graph DB</text><text x="78" y="453" class="c">Vulnerability · asset · control paths</text>
-    <rect x="54" y="516" width="274" height="68" rx="12" class="box gold"/><text x="78" y="545" class="t">Confidence Tagger</text><text x="78" y="567" class="c">Verified · Configured · Estimated</text>
-  </g>
-
-  <!-- core -->
-  <g filter="url(#shadow)">
-    <rect x="418" y="166" width="318" height="84" rx="12" class="box core"/><text x="446" y="201" class="t">FAIR Risk Model</text><text x="446" y="225" class="c">Frequency × loss magnitude</text>
-    <rect x="418" y="288" width="318" height="84" rx="12" class="box gold"/><text x="446" y="323" class="t">Monte Carlo Simulation</text><text x="446" y="347" class="c">EAL · tail loss · confidence bands</text>
-    <rect x="418" y="410" width="318" height="102" rx="12" class="box core"/><text x="446" y="445" class="t">Threat Path Graph</text><text x="446" y="469" class="c">Entry point → asset → control</text><text x="446" y="491" class="c">→ business impact</text>
-    <rect x="418" y="550" width="318" height="68" rx="12" class="box green"/><text x="446" y="579" class="t">Investment Optimizer</text><text x="446" y="601" class="c">Gordon–Loeb bounded</text>
-  </g>
-
-  <!-- outputs -->
-  <g filter="url(#shadow)">
-    <rect x="826" y="166" width="320" height="84" rx="12" class="box purple"/><text x="854" y="201" class="t">Threat Path View</text><text x="854" y="225" class="c">Estimated asset–vulnerability paths</text>
-    <rect x="826" y="288" width="320" height="84" rx="12" class="box purple"/><text x="854" y="323" class="t">Regulatory Twin Mapping</text><text x="854" y="347" class="c">ISO · NIST · CIS · RBI · SEBI</text>
-    <rect x="826" y="410" width="320" height="102" rx="12" class="box dark"/><text x="854" y="445" class="t" fill="#fff">Decision Dashboard</text><text x="854" y="469" class="c" fill="#d8e6f2">Scenarios · reports · audit trail</text><text x="854" y="491" class="c" fill="#a9d8d1">Board-ready action</text>
-  </g>
-
-  <!-- connectors -->
-  <path d="M328 208H418" class="line"/><path d="M328 322H370V208H418" class="line"/>
-  <path d="M328 436H380V461H418" class="line"/><path d="M328 550H380V461H418" class="line dash"/>
-  <path d="M577 250V288" class="line"/><path d="M577 372V410" class="line"/><path d="M577 512V550" class="line"/>
-  <path d="M736 208H826" class="line"/><path d="M736 461H780V330H826" class="line dash"/><path d="M736 461H826" class="line"/><path d="M736 584H780V461H826" class="line"/>
-
-  <g transform="translate(418 646)"><rect width="728" height="32" rx="16" fill="#e8f5ef" stroke="#b9daca"/><text x="22" y="21" class="c">Core principle: every risk number carries its evidence state.</text></g>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 126H1600" stroke="#24425d"/><path d="M0 170H1600M0 200H1600M0 230H1600M0 260H1600M0 290H1600M0 320H1600M0 350H1600M0 380H1600M0 410H1600M0 440H1600M0 470H1600M0 500H1600M0 530H1600M0 560H1600M0 590H1600M0 620H1600M0 650H1600M0 680H1600M0 710H1600" stroke="#1d354c" opacity=".25"/>
+  <text x="78" y="70" class="title">SecureX system architecture</text>
+  <text x="78" y="102" class="sub">Evidence → exposure graph → quantified risk → investment decision</text>
+  <text x="78" y="155" class="eyebrow">INPUTS</text><text x="595" y="155" class="eyebrow">CORE ENGINE</text><text x="1190" y="155" class="eyebrow">DECISION OUTPUTS</text>
+  <g filter="url(#shadow)"><rect x="78" y="218" width="330" height="100" rx="15" fill="url(#panel)" stroke="#365c76"/><text x="110" y="256" class="tag">01 / OBSERVE</text><text x="110" y="288" class="t">Assets + CVE intelligence</text><text x="110" y="310" class="c">Telemetry · scans · business context</text></g>
+  <g filter="url(#shadow)"><rect x="78" y="356" width="330" height="100" rx="15" fill="url(#panel)" stroke="#365c76"/><text x="110" y="394" class="tag">02 / ENRICH</text><text x="110" y="426" class="t">CISA KEV + EPSS</text><text x="110" y="448" class="c">Exploitation and likelihood signals</text></g>
+  <g filter="url(#shadow)"><rect x="78" y="494" width="330" height="100" rx="15" fill="url(#panel)" stroke="#365c76"/><text x="110" y="532" class="tag">03 / EVIDENCE</text><text x="110" y="564" class="t">Controls + confidence</text><text x="110" y="586" class="c">Verified · configured · estimated</text></g>
+  <g filter="url(#shadow)"><rect x="500" y="218" width="580" height="120" rx="18" fill="url(#core)" stroke="#3a8b88"/><text x="540" y="258" class="tag" fill="#9cddd4">GRAPH FOUNDATION</text><text x="540" y="297" class="t">Vulnerability–Asset–Control Graph</text><text x="540" y="322" class="c">Reachability · shared nodes · evidence paths</text></g>
+  <g filter="url(#shadow)"><rect x="500" y="392" width="278" height="120" rx="18" fill="url(#panel)" stroke="#365c76"/><text x="532" y="432" class="tag">RISK MODEL</text><text x="532" y="470" class="t">FAIR + Monte Carlo</text><text x="532" y="495" class="c">Expected and tail loss</text></g>
+  <g filter="url(#shadow)"><rect x="802" y="392" width="278" height="120" rx="18" fill="url(#panel)" stroke="#365c76"/><text x="834" y="432" class="tag">PATH ANALYSIS</text><text x="834" y="470" class="t">Threat path engine</text><text x="834" y="495" class="c">Impact and choke points</text></g>
+  <g filter="url(#shadow)"><rect x="500" y="566" width="580" height="120" rx="18" fill="url(#core)" stroke="#3a8b88"/><text x="540" y="606" class="tag" fill="#9cddd4">CAPITAL DECISION</text><text x="540" y="645" class="t">Investment Optimizer</text><text x="540" y="670" class="c">Gordon–Loeb ceiling · reduction · cost · return</text></g>
+  <g filter="url(#shadow)"><rect x="1172" y="218" width="350" height="100" rx="15" fill="#e9f5f2" stroke="#7dbeb5"/><text x="1204" y="256" class="tag" fill="#267b72">OUTPUT 01</text><text x="1204" y="288" class="t" fill="#17324d">Risk posture</text><text x="1204" y="310" class="c" fill="#536b7e">Expected annual loss + confidence</text></g>
+  <g filter="url(#shadow)"><rect x="1172" y="356" width="350" height="100" rx="15" fill="#eaf2fa" stroke="#8cafca"/><text x="1204" y="394" class="tag" fill="#416e91">OUTPUT 02</text><text x="1204" y="426" class="t" fill="#17324d">Next-best control</text><text x="1204" y="448" class="c" fill="#536b7e">A defensible funding recommendation</text></g>
+  <g filter="url(#shadow)"><rect x="1172" y="494" width="350" height="100" rx="15" fill="#f5f0e5" stroke="#d5bd82"/><text x="1204" y="532" class="tag" fill="#8e7133">OUTPUT 03</text><text x="1204" y="564" class="t" fill="#17324d">Regulatory twin</text><text x="1204" y="586" class="c" fill="#536b7e">Evidence mapped to control frameworks</text></g>
+  <g filter="url(#shadow)"><rect x="1172" y="632" width="350" height="100" rx="15" fill="#193e55" stroke="#3f8f88"/><text x="1204" y="670" class="tag" fill="#9cddd4">OUTPUT 04</text><text x="1204" y="702" class="t">Board-ready decision</text><text x="1204" y="724" class="c">Dashboard · reports · audit trail</text></g>
+  <path d="M408 268H500" class="line"/><path d="M408 406H450V268H500" class="line"/><path d="M408 544H450V278H500" class="line dash"/>
+  <path d="M790 338V392" class="line"/><path d="M920 338V392" class="line"/><path d="M639 512V566" class="line"/><path d="M941 512V566" class="line dash"/>
+  <path d="M1080 278H1172" class="line"/><path d="M1080 452H1125V406H1172" class="line"/><path d="M1080 626H1125V544H1172" class="line dash"/><path d="M1080 626H1172V682" class="line"/>
+  <g transform="translate(78 790)"><circle cx="7" cy="0" r="5" fill="#54b8aa"/><text x="23" y="5" class="sub">SecureX makes uncertainty visible before it becomes a funding decision.</text></g>
 </svg>
