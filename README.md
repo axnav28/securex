@@ -18,9 +18,10 @@ SecureX is an evidence-aware cyber-risk quantification platform for security, ri
 
 ## Live deployment
 
-- Frontend: [securex-a2z.vercel.app](https://securex-a2z.vercel.app)
-- API: [securex-api-yvi2.onrender.com](https://securex-api-yvi2.onrender.com)
-- Health: [securex-api-yvi2.onrender.com/health](https://securex-api-yvi2.onrender.com/health)
+- Frontend - [securex-a2z.vercel.app](https://securex-a2z.vercel.app)
+- API - [securex-api-yvi2.onrender.com](https://securex-api-yvi2.onrender.com)
+- Health - [securex-api-yvi2.onrender.com/health](https://securex-api-yvi2.onrender.com/health)
+- Demo - [https://www.youtube.com/watch?v=hMr9sXuM8TI](https://www.youtube.com/watch?v=hMr9sXuM8TI)
 
 ## Problem
 
