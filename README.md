@@ -9,11 +9,11 @@ SecureX is an evidence-aware cyber-risk quantification platform for security, ri
 | Field | Details |
 | --- | --- |
 | Team | A2Z · Netaji Subhas University of Technology (NSUT) |
-| Category | Software |
+| Idea | SecureX |
 | Problem Statement ID (PS ID) | SIH26105 |
 | Problem Statement Title | AI-Powered Continuous Cyber Risk Quantification and Investment Optimization Platform |
 | Theme | Blockchain & Cybersecurity |
-| Idea | SecureX |
+| Category | Software |
 | Repository | [github.com/axnav28/securex](https://github.com/axnav28/securex) |
 
 ## Live deployment
