@@ -31,4 +31,4 @@ jobs:
           python-version: '3.11'
 
       - name: Validate backend modules
-        run: python -m py_compile backend/main.py backend/db.py backend/cache.py backend/quantification.py
+        run: python -m py_compile src/backend/main.py src/backend/db.py src/backend/cache.py src/backend/quantification.py

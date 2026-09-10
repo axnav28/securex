@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="402" height="321" viewBox="0 0 402 321" role="img" aria-labelledby="title desc">
+  <title id="title">SecureX operating process</title>
+  <desc id="desc">A compact five-step vertical process from security signal ingestion to board-ready governance.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#17324d" flood-opacity=".10"/></filter>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#55758d"/></marker>
+    <style>
+      text{font-family:"Helvetica World",Helvetica,Arial,sans-serif}.title{font:700 17px "Helvetica World",Helvetica,Arial,sans-serif;fill:#142d44;letter-spacing:-.25px}.sub{font:400 8px "Helvetica World",Helvetica,Arial,sans-serif;fill:#68798a}.eyebrow{font:700 7px "Helvetica World",Helvetica,Arial,sans-serif;fill:#5b7084;letter-spacing:1.2px}.num{font:700 8px "Helvetica World",Helvetica,Arial,sans-serif;fill:#fff}.step{font:700 11px "Helvetica World",Helvetica,Arial,sans-serif;fill:#142d44}.copy{font:400 7px "Helvetica World",Helvetica,Arial,sans-serif;fill:#607181}.line{fill:none;stroke:#8ba0b1;stroke-width:1.5;marker-end:url(#arrow)}.promise{font:700 7.5px "Helvetica World",Helvetica,Arial,sans-serif;fill:#17324d}
+    </style>
+  </defs>
+  <rect width="402" height="321" rx="14" fill="#fff"/>
+  <path d="M20 51H382" stroke="#dce4ea"/>
+  <text x="20" y="27" class="title">From security noise to a board decision</text>
+  <text x="20" y="42" class="sub">SecureX turns evidence into a clear funding path.</text>
+  <text x="20" y="66" class="eyebrow">THE SECUREX OPERATING LOOP</text>
+
+  <!-- single reading spine -->
+  <path d="M30 91V266" stroke="#c6d3dc" stroke-width="2"/>
+  <path d="M30 116V121M30 151V156M30 186V191M30 221V226" class="line"/>
+
+  <g filter="url(#shadow)"><circle cx="30" cy="92" r="12" fill="#315d7d"/><text x="30" y="95" text-anchor="middle" class="num">01</text><rect x="55" y="78" width="327" height="28" rx="8" fill="#f5f8fa" stroke="#b9c6d0"/><rect x="55" y="78" width="4" height="28" rx="2" fill="#315d7d"/><text x="74" y="96" class="step">Ingest</text><text x="132" y="96" class="copy">Signals, assets, CVE scans, and telemetry</text></g>
+  <g filter="url(#shadow)"><circle cx="30" cy="127" r="12" fill="#2c8178"/><text x="30" y="130" text-anchor="middle" class="num">02</text><rect x="55" y="113" width="327" height="28" rx="8" fill="#f1f7f6" stroke="#a8c9c4"/><rect x="55" y="113" width="4" height="28" rx="2" fill="#2c8178"/><text x="74" y="131" class="step">Verify</text><text x="132" y="131" class="copy">Trace paths and tag evidence confidence</text></g>
+  <g filter="url(#shadow)"><circle cx="30" cy="162" r="12" fill="#9b7b37"/><text x="30" y="165" text-anchor="middle" class="num">03</text><rect x="55" y="148" width="327" height="28" rx="8" fill="#f7f5ef" stroke="#d6c7a1"/><rect x="55" y="148" width="4" height="28" rx="2" fill="#9b7b37"/><text x="74" y="166" class="step">Quantify</text><text x="140" y="166" class="copy">Price residual exposure with FAIR + Monte Carlo</text></g>
+  <g filter="url(#shadow)"><circle cx="30" cy="197" r="12" fill="#315d7d"/><text x="30" y="200" text-anchor="middle" class="num">04</text><rect x="55" y="183" width="327" height="28" rx="8" fill="#f5f8fa" stroke="#b9c6d0"/><rect x="55" y="183" width="4" height="28" rx="2" fill="#315d7d"/><text x="74" y="201" class="step">Optimize</text><text x="140" y="201" class="copy">Compare control cost, reduction, and return</text></g>
+  <g filter="url(#shadow)"><circle cx="30" cy="232" r="12" fill="#2c8178"/><text x="30" y="235" text-anchor="middle" class="num">05</text><rect x="55" y="218" width="327" height="28" rx="8" fill="#eaf5f2" stroke="#a8c9c4"/><rect x="55" y="218" width="4" height="28" rx="2" fill="#2c8178"/><text x="74" y="236" class="step">Govern</text><text x="132" y="236" class="copy">Turn the answer into board-ready action</text></g>
+
+  <rect x="20" y="271" width="362" height="25" rx="12.5" fill="#f4f8fa" stroke="#cbd8e1"/><rect x="20" y="271" width="4" height="25" rx="2" fill="#2c8178"/><text x="201" y="287" text-anchor="middle" class="promise">Every signal becomes an evidence-aware investment decision.</text>
+</svg>

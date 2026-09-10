@@ -2,44 +2,64 @@
 
 ### Cyber risk, priced in rupees.
 
-SecureX is a cyber-risk quantification platform that turns attack-path evidence into financial decisions. It combines an executive risk workspace with an API-backed simulation engine, persistent scenarios, audit history, and evidence-aware recommendations.
+SecureX is an evidence-aware cyber-risk quantification platform for security, risk, and finance teams. It connects attack-path evidence, probabilistic risk modeling, and investment optimization so organizations can defend where the next security rupee should go.
+
+## Project information
+
+| Field | Details |
+| --- | --- |
+| Team | A2Z · Netaji Subhas University of Technology (NSUT) |
+| Project | SecureX |
+| Category | Software |
+| Domain | Cybersecurity, risk quantification, governance |
+| Repository | [github.com/axnav28/securex](https://github.com/axnav28/securex) |
 
 ## Live deployment
 
-- **Frontend:** [securex-a2z.vercel.app](https://securex-a2z.vercel.app)
-- **API:** [securex-api-yvi2.onrender.com](https://securex-api-yvi2.onrender.com)
-- **API health check:** [securex-api-yvi2.onrender.com/health](https://securex-api-yvi2.onrender.com/health)
+- Frontend: [securex-a2z.vercel.app](https://securex-a2z.vercel.app)
+- API: [securex-api-yvi2.onrender.com](https://securex-api-yvi2.onrender.com)
+- Health: [securex-api-yvi2.onrender.com/health](https://securex-api-yvi2.onrender.com/health)
 
-The production frontend is connected to the Render API through `NEXT_PUBLIC_API_BASE_URL`, with CORS restricted to the Vercel origin.
+## Problem
 
-## Product surface
+Security teams have alerts, controls, vulnerability findings, and attack paths. Boards still need a defensible answer to two questions: **what is the exposure worth, and which control should we fund next?**
 
-The workspace includes:
+## Proposed solution
 
-- Executive dashboard with estimated annual loss, confidence mix, and risk contributors
-- What-if control simulator with live loss recalculation
-- Interactive attack graph with node details and choke points
-- Investment optimizer with budget and risk-reduction recommendations
-- Compliance matrix across ISO 27001, NIST CSF, CIS Controls, RBI, and SEBI mappings
-- Risk trends, board reports, methodology, integrations, and audit log
+SecureX converts technical exposure into an evidence-aware financial decision. It models connected vulnerability–asset–control paths, quantifies expected annual loss, tests controls through scenarios, and recommends investments within a rational spend ceiling.
+
+## Key capabilities
+
+- Executive dashboard with expected annual loss, posture, confidence mix, and risk contributors
+- What-if simulator with live control and budget sensitivity
+- Interactive attack graph with root-cause and downstream exposure tracing
+- Investment optimizer with reduction, cost, ROI, and Gordon–Loeb bounded recommendations
+- Compliance intelligence across ISO 27001, NIST CSF, CIS, RBI, and SEBI mappings
+- Trends, board reports, methodology, integrations, and hash-chained audit history
 - SecureX Copilot for natural-language risk questions
-- Organization switching for Asteria Finance, Northstar Microcredit, and Pragati Bank
+- Organization switching for multiple seeded demonstration organizations
 
 ## Architecture
 
 ```text
-Vercel / Next.js frontend
-          │ HTTPS + JWT + CORS
-          ▼
-Render / FastAPI API
-       ┌──┴──────────────┐
-       ▼                 ▼
-   Postgres          Redis cache
+Security signals + CVE intelligence
+              │
+              ▼
+     Vulnerability–Asset–Control graph
+              │
+              ▼
+   FAIR risk model + Monte Carlo engine
+              │
+              ▼
+ Gordon–Loeb bounded investment optimizer
+              │
+              ▼
+ Dashboard · scenarios · reports · audit trail
 ```
 
-The backend includes a deterministic 10,000-iteration Monte Carlo engine. Overlapping attack paths are aggregated by shared risk group so a shared node is not credited twice. Scenarios and hash-chained audit entries are persisted in Postgres; risk summaries and graph responses use Redis caching.
+See the full architecture in [docs/architecture.md](docs/architecture.md) and the presentation diagrams in [assets/diagrams](assets/diagrams).
 
-## Technology
+## Technology stack
 
 | Layer | Technology |
 | --- | --- |
@@ -50,12 +70,40 @@ The backend includes a deterministic 10,000-iteration Monte Carlo engine. Overla
 | Local infrastructure | Docker Compose |
 | Deployment | Vercel + Render |
 
+## Repository structure
+
+```text
+securex/
+├── README.md
+├── SUBMISSION_GUIDE.md
+├── LICENSE
+├── package.json
+├── requirements.txt
+├── docker-compose.yml
+├── render.yaml
+├── src/
+│   ├── app/                  # Next.js routes, layouts, and global styles
+│   ├── components/           # Shared UI, shell, charts, and providers
+│   ├── lib/                  # API client, organization helpers, mock fallback
+│   └── backend/              # FastAPI service, database, cache, quantification
+├── docs/
+│   ├── architecture.md
+│   └── api-contract.md
+├── assets/
+│   ├── diagrams/
+│   └── screenshots/
+├── submission/
+│   ├── PRESENTATION.md
+│   └── DEMO.md
+└── .github/workflows/ci.yml
+```
+
 ## Local development
 
 ### Requirements
 
-- Node.js 18 or newer
-- Python 3.11 or newer for running the API outside Docker
+- Node.js 18+
+- Python 3.11+
 - Docker Desktop with Docker Compose
 
 ### Start the full stack
@@ -71,66 +119,36 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000). The local API runs at [http://localhost:8000](http://localhost:8000).
 
-Stop the local services with:
-
-```bash
-docker compose down
-```
-
-The default Postgres volume is retained by `docker compose down`, so saved scenarios and audit entries survive a normal restart.
-
 ### Run the API without Docker
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r backend/requirements.txt
-python3 -m uvicorn main:app --app-dir backend --host 127.0.0.1 --port 8000
+pip install -r requirements.txt
+python3 -m uvicorn main:app --app-dir src/backend --host 127.0.0.1 --port 8000
 ```
 
-Postgres and Redis must still be available for persistence and caching. If they are unavailable, the API uses its seeded in-memory fallback so the demo remains usable.
-
-## Environment variables
-
-Copy `.env.example` for local configuration. The main variables are:
-
-| Variable | Purpose |
-| --- | --- |
-| `NEXT_PUBLIC_API_BASE_URL` | API origin used by the browser |
-| `CORS_ORIGINS` | Comma-separated browser origins accepted by the API |
-| `SECUREX_JWT_SECRET` | JWT signing secret; generated by Render in production |
-| `DATABASE_URL` | SQLAlchemy async Postgres connection string |
-| `REDIS_URL` | Redis connection string |
-
-Never commit `.env.local` or production secrets.
-
-## Demo authentication and data scope
-
-The demo login issues and validates JWTs, and all organization-scoped routes require a valid bearer token. Credential verification against persisted passwords is intentionally stubbed for the demo: any email and password can obtain a demo token.
-
-The computation, persistence, caching, and audit mechanisms are real. The organization, asset, vulnerability, and control records are seeded demonstration data rather than live feeds from Qualys, Tenable, Splunk, or CrowdStrike. The frontend keeps a mock-data fallback for graceful demo behavior when the API is unavailable.
-
-## Validation
+### Validate
 
 ```bash
 npm run build
-python3 -m py_compile backend/main.py backend/db.py backend/cache.py backend/quantification.py
+python3 -m py_compile src/backend/main.py src/backend/db.py src/backend/cache.py src/backend/quantification.py
 docker compose config
 curl http://localhost:8000/health
 ```
 
-The API response contract is documented in [API_CONTRACT.md](./API_CONTRACT.md). GitHub Actions runs the frontend build and backend module validation on pushes and pull requests to `main`.
+## Data and demo scope
 
-## Deployment
+The computation, JWT session, persistence, caching, scenario, and audit mechanisms are implemented in the backend. The organization, asset, vulnerability, and control records are seeded demonstration data rather than live feeds from external security products. The frontend retains a graceful mock-data fallback when the API is unavailable.
 
-The repository includes [render.yaml](./render.yaml), which provisions the Dockerized FastAPI service, managed Postgres, and Redis-compatible Key Value on Render.
+## Documentation and submission
 
-For a new deployment:
+- [Architecture](docs/architecture.md)
+- [API contract](docs/api-contract.md)
+- [Presentation outline](submission/PRESENTATION.md)
+- [Demo flow](submission/DEMO.md)
+- [Submission guide](SUBMISSION_GUIDE.md)
 
-1. Create a Render Blueprint from this repository and deploy `render.yaml`.
-2. Set `CORS_ORIGINS` to the Vercel production URL.
-3. Import the repository into Vercel as a Next.js project.
-4. Set `NEXT_PUBLIC_API_BASE_URL` to the Render API URL.
-5. Redeploy Vercel and verify `/health`, login, and an authenticated organization route.
+## License
 
-Vercel and Render deployment configuration is intentionally kept outside the repository secrets. Only public configuration and infrastructure definitions are committed.
+This project is released under the MIT License. See [LICENSE](LICENSE).

@@ -1,6 +1,6 @@
 services:
   api:
-    build: ./backend
+    build: ./src/backend
     ports:
       - "8000:8000"
     environment:
